@@ -10,24 +10,8 @@ const getRandomIntInclusive = (min, max) => {
   }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-getRandomIntInclusive(5, 10);
-
 
 const checkLineLenght = (line, maxLenght) => String.length < maxLenght;
-
-checkLineLenght('', 140);
-
-
-// Больше деталей 4 раздел
-
-function getListElements(counter) {
-  const newArray = [];
-  for (let i = 1; i <= counter; i++) {
-    const newElem = i;
-    newArray.push(newElem);
-  }
-  return newArray;
-}
 
 const PICTURE_COUNT = 25;
 
@@ -41,8 +25,6 @@ const COMMENTS_COUNT = {
   MAX: 200,
 };
 
-const ID_ARRAY = getListElements(25);
-
 const DESCRIPTIONS = [
   'Зачем я это сфоткал?',
   'Сейчас бы на работу, а не вот это вот все...',
@@ -54,6 +36,16 @@ const DESCRIPTIONS = [
   'Это просто великолепно!',
   'Это войдет в историю!',
 ];
+
+const getListElements = (counter) => {
+  const newArray = [];
+  for (let i = 1; i <= counter; i++) {
+    newArray.push(i);
+  }
+  return newArray;
+};
+
+const ID_ARRAY = getListElements(25);
 
 const getRandomArrayElement = (elements) => elements[getRandomIntInclusive(0, elements.length - 1)];
 
@@ -69,3 +61,7 @@ const getPictures = () =>
   Array.from({length: PICTURE_COUNT}, createPicture);
 
 getPictures();
+
+getRandomIntInclusive(5, 10);
+
+checkLineLenght('', 140);
