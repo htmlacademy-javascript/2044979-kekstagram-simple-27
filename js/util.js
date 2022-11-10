@@ -13,4 +13,7 @@ const checkLineLenght = (line, maxLenght) => String.length < maxLenght;
 
 const getRandomArrayElement = (elements) => elements[getRandomIntInclusive(0, elements.length - 1)];
 
-export {getRandomArrayElement, getRandomIntInclusive, checkLineLenght};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+// const isEnterKey = (evt) => evt.key === 'Enter';
+
+export {getRandomArrayElement, getRandomIntInclusive, checkLineLenght, isEscapeKey};
