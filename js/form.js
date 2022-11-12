@@ -1,13 +1,14 @@
-import {isEscapeKey} from './util.js';
-
-const form = document.querySelector('.img-upload__form');
+import { isEscapeKey } from './util.js';
+import { resetScale } from './scale.js';
+import { resetEffects } from './effects.js';
+const userForm = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
 const commentField = document.querySelector('.text__description');
 
-const pristine = new Pristine(form, {
+const pristine = new Pristine(userForm, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
   errorTextClass: 'img-upload__text_error',
@@ -27,7 +28,9 @@ const showModal = () => {
 };
 
 const hideModal = () => {
-  form.reset();
+  userForm.reset();
+  resetScale();
+  resetEffects();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -54,4 +57,4 @@ const onFileInputChange = () => {
 
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelButtonClick);
-form.addEventListener('submit', onFormSubmit);
+userForm.addEventListener('submit', onFormSubmit);
