@@ -1,15 +1,15 @@
-const smallerButton = document.querySelector('.scale__control--smaller');
-const biggerButton = document.querySelector('.scale__control--bigger');
-const scaleInput = document.querySelector('.scale__control--value');
-const img = document.querySelector('.img-upload__preview img');
-
 const MAX_SCALE = 100;
 const MIN_SCALE = 25;
 const SCALE_STEP = 25;
 const DEFAULT_SCALE = 100;
 
+const smallerButton = document.querySelector('.scale__control--smaller');
+const biggerButton = document.querySelector('.scale__control--bigger');
+const scaleInput = document.querySelector('.scale__control--value');
+const img = document.querySelector('.img-upload__preview img');
+
 const scaleImage = (value = DEFAULT_SCALE) => {
-  img.style.transform = `scale(${value / 100})`;
+  img.style.transform = `scale(${value / DEFAULT_SCALE})`;
   scaleInput.value = `${value}`;
 };
 
