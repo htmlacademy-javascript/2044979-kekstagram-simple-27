@@ -1,22 +1,18 @@
-import {getPictures} from './data.js';
-
 const formPictures = document.querySelector('.pictures');
-const picturesTemplate = document.querySelector('#picture')
-  .content
-  .querySelector('.picture');
+const templatePicture = document.querySelector('#picture').content.querySelector('.picture');
 
-const similarPicture = getPictures();
+const similarPicture = (usersPictures) => {
+  const usersPicturesFragment = document.createDocumentFragment();
 
-const similarListFragment = document.createDocumentFragment();
+  usersPictures.forEach(({url, likes, comments}) => {
+    const pictureElement = templatePicture.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
+    pictureElement.querySelector('.picture__comments').textContent = comments;
+    usersPicturesFragment.appendChild(pictureElement);
+  });
 
-similarPicture.forEach(({url, likes, comments}) => {
-  const pictureElement = picturesTemplate.cloneNode(true);
+  formPictures.append(usersPicturesFragment);
+};
 
-  pictureElement.querySelector('.picture__img').src = url;
-  pictureElement.querySelector('.picture__likes').textContent = likes;
-  pictureElement.querySelector('.picture__comments').textContent = comments;
-  similarListFragment.appendChild(pictureElement);
-
-});
-
-formPictures.append(similarListFragment);
+export { similarPicture };
