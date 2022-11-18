@@ -1,3 +1,6 @@
+import { getData } from './api.js';
+import { alertMessage } from './messages.js';
+
 const formPictures = document.querySelector('.pictures');
 const templatePicture = document.querySelector('#picture').content.querySelector('.picture');
 
@@ -15,4 +18,4 @@ const similarPicture = (usersPictures) => {
   formPictures.append(usersPicturesFragment);
 };
 
-export { similarPicture };
+getData(similarPicture, alertMessage);
