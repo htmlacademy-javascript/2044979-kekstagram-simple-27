@@ -2,7 +2,7 @@ import { isEscapeKey } from './util.js';
 import { resetScale } from './scale.js';
 import { resetEffects } from './effects.js';
 import { sendData } from './api.js';
-import { showAlert, alertMessage } from './messages.js';
+import { showAlert } from './messages.js';
 
 const userFormElement = document.querySelector('.img-upload__form');
 const imgUploadOverlayElement = document.querySelector('.img-upload__overlay');
@@ -79,7 +79,7 @@ function onFormSubmitButton (evt) {
     sendData(
       () => {
         hideModal();
-        alertMessage('success');
+        showAlert('success');
         unblockSubmitButton();
       },
       () => {
