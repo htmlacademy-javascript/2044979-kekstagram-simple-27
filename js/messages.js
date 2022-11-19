@@ -3,8 +3,8 @@ import { isEscapeKey } from './util.js';
 const ALERT_SHOW_TIME = 5000;
 
 const showAlert = (alert) => {
-  const alertTemplate = document.querySelector(`#${alert}`).content.querySelector(`.${alert}`);
-  const alertElement = alertTemplate.cloneNode(true);
+  const alertTemplateElement = document.querySelector(`#${alert}`).content.querySelector(`.${alert}`);
+  const alertElement = alertTemplateElement.cloneNode(true);
   const alertButtonElement = alertElement.querySelector(`.${alert}__button`);
 
   function onCloseAlertElement () {
